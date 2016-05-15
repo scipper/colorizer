@@ -63,6 +63,17 @@ class Colorizer {
      * @return string
      */
     public function cecho($string, $foregroundColor = NULL, $backgroundColor = NULL) {
+        echo $this->colorize($string, $foregroundColor, $backgroundColor);
+    }
+
+    /**
+     * @param $string
+     * @param string $foregroundColor
+     * @param string $backgroundColor
+     *
+     * @return string
+     */
+    public function colorize($string, $foregroundColor = NULL, $backgroundColor = NULL) {
         $coloredString = "";
         $fgConst = $this->getConstName($foregroundColor);
         if(!is_null($fgConst) && !$this->isWindows) {
@@ -80,7 +91,21 @@ class Colorizer {
             $coloredString .=  "\033[0m";
         }
 
-        echo $coloredString;
+        return $coloredString;
+    }
+
+    /**
+     * @param $lines
+     */
+    public function linesUp($lines) {
+        echo "\033[" . $lines . "A";
+    }
+
+    /**
+     * @param $lines
+     */
+    public function linesDown($lines) {
+        echo "\033[" . $lines . "B";
     }
 
     /**
