@@ -95,17 +95,21 @@ class Colorizer {
     }
 
     /**
-     * @param $lines
+     * @param integer $lines
+     *
+     * @return string
      */
     public function linesUp($lines) {
-        echo "\033[" . $lines . "A";
+        return "\033[" . $lines . "A";
     }
 
     /**
-     * @param $lines
+     * @param integer $lines
+     *
+     * @return string
      */
     public function linesDown($lines) {
-        echo "\033[" . $lines . "B";
+        return "\033[" . $lines . "B";
     }
 
     /**
